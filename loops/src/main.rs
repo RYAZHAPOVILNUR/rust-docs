@@ -64,7 +64,29 @@ fn main() {
 
     let a = [1, 2 ,3 ,4 ,5];
     let slice = &a[1..3];
-    println!("{:?}", slice)
+    println!("{:?}", slice);
+
+
+    let mut count = 0;
+    let loopResult = 'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up "hello from loop";
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    };
+    println!("End count = {count}, loop result: {loopResult}");
+
 }
 
 fn function1() -> String {
